@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import Head from './components/Head'
+import Content from './components/Content'
+import UnionBank from './components/UnionBank'
+// import Age from './components/Age'
+import Home from './components/Home'
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App />
+    <Head /> */}
+    {/* <Content /> */}
+    {/* <UnionBank /> */}
+    {/* <Age /> */}
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );

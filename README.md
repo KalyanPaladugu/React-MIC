@@ -1,70 +1,149 @@
-# Getting Started with Create React App
+### ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Environment setup
 
-## Available Scripts
 
-In the project directory, you can run:
++ Creating React application by using Webpack and babel
++ By using `create-react-app`
 
-### `npm start`
+    + npm install create-react-app
+          + create-react-app applicationname
+          
+    + npx create-react-app applicationname
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
++ To change current directotory `cd applicationame`
++ To start the server use `npm start`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### React features
 
-### `npm test`
++ It is a library
++ Virtual DOM (it's enable us to build scalable and fast applications)
++ JSX
++ One way data binding(parent to child)
++ Single page applications
++ components
+    + Functional component (stateless)
+    + Class component  (statefull)
+    + Pure component
+    + Higher Order Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Props 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
++ Props are like arguments in function
++ Props are immutable
++ It is undirectional and data is read only
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Example:
+=========
++ UnionBank --> Parent(Funcional Component)
++ AndhraBank  --> Child1 (Functional Component)
++ CorporationBank --> Child2 (Class Component)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### State
 
-### `npm run eject`
++ In react we maintain data in the format of states in class components
++ By creating constructor we can initialize data with usage of `super()` method and `this.state`
++ `constructor(){
+    super();
+    this.state={
+        name:"Sasi"
+    }
+} 
+`
++ Data can be updated by using `setState()`
++ App.js
+    + Register.js
+    + Login.js
+    + Home.js
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
++ Register.js
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        + RegisterHead.js
+        + RegisterBody.js
+        + RegisterLeft.js
+        + RegisterRight.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
++ Login.js
++ Home.js
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Component Lifecycle
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
++ Lifecycle of component is divided into 4 phases
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    + Initial Phase
+    + Mounting Phase
+    + Updating Phase
+    + Unmounting phase
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Initial Phase
+    + getDefaultProps()
+    + getInitialState()
 
-### Analyzing the Bundle Size
+2. MountingPhase
+   
+   + componentWillMount()
+        + This is invoked immediately before a component gets rendered into the DOM 
+   + componentDidMount()
+        + This is invoked immediately after a component gets rendered and placed into the DOM
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Updating Phase
 
-### Making a Progressive Web App
+    + componentWillReceiveProps()
+        + It is invoked when a component receive new props.If you want to update the state in response to prop changes,you should compare this.props and nextProps to perform state transition by using this.setState() method
+    + shouldComponentUpdate()
+        + It is invoked when a component decides any chnages/updaion to the DOM
+    + componentWillUpdate()
+        + It is invoked just before the component updating occurs.
+    + componentDidUpdate()
+        + It is invoked immediately after the component updating occurs.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Unmounting Phase
 
-### Advanced Configuration
+ + componentWillUnmount()
+    + This method is invoked immediately before a component is destroyed and unmounted permanently.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ 
+ ### React Hooks
 
-### Deployment
+Summary:
+=========
++ Hooks are new feature addition in React 16.8 version
++ Avoid the confusion of using `this` keyword
++ Allow you to resue the statefull logic
++ By using `useState()` we can initialize state and assign to a varible with usage of array destructuring . To update state we cn use callback function
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Rules of Hooks:
+===============
++ Only call Hooks at the top level of a component and not in conditions or loops
++ Call them with in functional component not in normal javascript functions
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
++ Basic Hooks:
+     + useState
+     + useEffect
+     + useContext
+
+#### useState
+
++ useState returns a pair: the current state value and a callback function that let's you update state
+
++ const [age,setAge]=useState(26)
+
+
+#### useEffect
+
++ Adds the ability to perform side effects from a function component
++ It serves the same purpose  as componentDidMount(),componentDidUpdate and componentWillUnmount() in React classes, but unified into single API
+
+
+### Routing in React
+
++ Navigate from one component to another component we will use routing concept
++ Install `react-router-dom`
+
++ Two Type of router components
+    + BrowseRouter --> To handle the dynamic URL
+    + HashRouter  --> To handle the Static request
